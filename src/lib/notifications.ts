@@ -1,6 +1,5 @@
 import { connectDB } from './mongodb';
 import { User } from '@/models/User';
-import { Order } from '@/models/Order';
 
 export interface Notification {
   _id?: string;
@@ -19,8 +18,7 @@ export async function createOrderNotification(
   userId: string,
   orderId: string,
   orderNumber: string,
-  status: string,
-  previousStatus?: string
+  status: string
 ) {
   try {
     await connectDB();
