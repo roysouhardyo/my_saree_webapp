@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
-import Product from '@/models/Product';
+import Product, { IProduct } from '@/models/Product';
 
 export async function GET(
   request: NextRequest,
@@ -11,7 +11,7 @@ export async function GET(
     
     const { id } = await params;
     
-    const product = await Product.findById(id).lean() as any;
+    const product = await Product.findById(id).lean() as IProduct | null;
     
     if (!product) {
       return NextResponse.json(
@@ -22,7 +22,7 @@ export async function GET(
 
     // Transform the product to match the expected format
     const transformedProduct = {
-      _id: product._id.toString(),
+      _id: (product._id as any).toString(),
       title: product.title,
       description: product.description,
       price: product.price,
@@ -32,7 +32,7 @@ export async function GET(
       fabric: product.fabric,
       occasion: product.occasion,
       vendor: {
-        _id: product.vendorId?.toString() || 'default-vendor',
+        _id: product.vendorId.toString(),
         businessName: 'Saree Not Sorry' // Default vendor name
       },
       rating: product.rating,

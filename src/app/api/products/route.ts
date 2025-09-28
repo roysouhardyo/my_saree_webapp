@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '12');
 
     // Build query object
-    const query: any = { isActive: true };
+    const query: Record<string, unknown> = { isActive: true };
 
     // Apply filters
     if (search) {
@@ -44,14 +44,14 @@ export async function GET(request: NextRequest) {
     if (minPrice || maxPrice) {
       query.$expr = {};
       if (minPrice && maxPrice) {
-        query.$expr.$and = [
+        (query.$expr as any).$and = [
           { $gte: [{ $ifNull: ['$salePrice', '$price'] }, parseInt(minPrice)] },
           { $lte: [{ $ifNull: ['$salePrice', '$price'] }, parseInt(maxPrice)] }
         ];
       } else if (minPrice) {
-        query.$expr.$gte = [{ $ifNull: ['$salePrice', '$price'] }, parseInt(minPrice)];
+        (query.$expr as any).$gte = [{ $ifNull: ['$salePrice', '$price'] }, parseInt(minPrice)];
       } else if (maxPrice) {
-        query.$expr.$lte = [{ $ifNull: ['$salePrice', '$price'] }, parseInt(maxPrice)];
+        (query.$expr as any).$lte = [{ $ifNull: ['$salePrice', '$price'] }, parseInt(maxPrice)];
       }
     }
 

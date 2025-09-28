@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const query: any = { productId };
+    const query: Record<string, unknown> = { productId };
     if (approved) {
       query.isApproved = true;
     }

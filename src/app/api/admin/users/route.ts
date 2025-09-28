@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search') || '';
 
     // Build query
-    const query: any = {};
+    const query: Record<string, unknown> = {};
     if (role) {
       query.role = role;
     }
@@ -82,7 +82,7 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    let update: any = {};
+    let update: Record<string, unknown> = {};
 
     if (action === 'approve_vendor') {
       if (user.role !== 'vendor') {

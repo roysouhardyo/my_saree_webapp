@@ -93,36 +93,43 @@ export async function PATCH(
         updatedAt: new Date()
       },
       { new: true }
-    ).populate('userId', 'name email');
+    ).populate('userId', 'name email') as (IOrder & { userId: { _id: string; name: string; email: string } }) | null;
+
+    if (!updatedOrder) {
+      return NextResponse.json(
+        { error: 'Order not found' },
+        { status: 404 }
+      );
+    }
 
     // Create notification for status change
-    if (updatedOrder && previousStatus !== status) {
+    if (previousStatus !== status) {
       await createOrderNotification(
-        (updatedOrder as any).userId._id.toString(),
-        (updatedOrder as any)._id.toString(),
-        (updatedOrder as any).orderNumber,
+        updatedOrder.userId._id.toString(),
+        (updatedOrder._id as any).toString(),
+        updatedOrder.orderNumber,
         status
       );
     }
 
     // Transform the response
     const transformedOrder = {
-      _id: (updatedOrder as any)._id.toString(),
-      userId: (updatedOrder as any).userId._id.toString(),
-      userName: (updatedOrder as any).userId.name,
-      userEmail: (updatedOrder as any).userId.email,
-      items: (updatedOrder as any).items.map((item: any) => ({
+      _id: (updatedOrder._id as any).toString(),
+      userId: updatedOrder.userId._id.toString(),
+      userName: updatedOrder.userId.name,
+      userEmail: updatedOrder.userId.email,
+      items: updatedOrder.items.map((item: any) => ({
         productId: item.productId.toString(),
         productName: item.title,
         productImage: item.image,
         quantity: item.quantity,
         price: item.price
       })),
-      totalAmount: (updatedOrder as any).totalAmount,
-      shippingAddress: (updatedOrder as any).shippingAddress,
-      status: (updatedOrder as any).status,
-      createdAt: (updatedOrder as any).createdAt.toISOString(),
-      updatedAt: (updatedOrder as any).updatedAt.toISOString()
+      totalAmount: updatedOrder.totalAmount,
+      shippingAddress: updatedOrder.shippingAddress,
+      status: updatedOrder.status,
+      createdAt: updatedOrder.createdAt.toISOString(),
+      updatedAt: updatedOrder.updatedAt.toISOString()
     };
 
     return NextResponse.json(transformedOrder);
@@ -152,7 +159,7 @@ export async function GET(
 
     const order = await Order.findById(orderId)
       .populate('userId', 'name email')
-      .lean();
+      .lean() as (IOrder & { userId: { _id: string; name: string; email: string } }) | null;
 
     if (!order) {
       return NextResponse.json(
@@ -163,22 +170,22 @@ export async function GET(
 
     // Transform the response
     const transformedOrder = {
-      _id: (order as any)._id.toString(),
-      userId: (order as any).userId._id.toString(),
-      userName: (order as any).userId.name,
-      userEmail: (order as any).userId.email,
-      items: (order as any).items.map((item: any) => ({
+      _id: (order._id as any).toString(),
+      userId: order.userId._id.toString(),
+      userName: order.userId.name,
+      userEmail: order.userId.email,
+      items: order.items.map((item: any) => ({
         productId: item.productId.toString(),
         productName: item.title,
         productImage: item.image,
         quantity: item.quantity,
         price: item.price
       })),
-      totalAmount: (order as any).totalAmount,
-      shippingAddress: (order as any).shippingAddress,
-      status: (order as any).status,
-      createdAt: (order as any).createdAt.toISOString(),
-      updatedAt: (order as any).updatedAt.toISOString()
+      totalAmount: order.totalAmount,
+      shippingAddress: order.shippingAddress,
+      status: order.status,
+      createdAt: order.createdAt.toISOString(),
+      updatedAt: order.updatedAt.toISOString()
     };
 
     return NextResponse.json(transformedOrder);

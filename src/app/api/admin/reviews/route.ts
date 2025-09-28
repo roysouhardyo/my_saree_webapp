@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
     const approved = searchParams.get('approved');
 
     // Build query
-    const query: any = {};
+    const query: Record<string, unknown> = {};
     if (approved !== null) {
       query.isApproved = approved === 'true';
     }
@@ -77,7 +77,7 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    let update: any = {};
+    let update: Record<string, unknown> = {};
 
     if (action === 'approve') {
       update.isApproved = true;

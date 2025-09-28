@@ -23,7 +23,13 @@ interface Order {
   _id: string;
   status: string;
   totalAmount: number;
-  items: any[];
+  items: {
+    productId: string;
+    productName: string;
+    productImage: string;
+    quantity: number;
+    price: number;
+  }[];
   createdAt: string;
 }
 

@@ -16,7 +16,7 @@ export async function GET(
 
     const { id } = await params;
 
-    let query: any = { _id: id };
+    let query: Record<string, unknown> = { _id: id };
 
     // Apply role-based filtering
     if (session.user.role === 'customer') {
