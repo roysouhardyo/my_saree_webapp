@@ -101,8 +101,7 @@ export async function PATCH(
         updatedOrder.userId._id.toString(),
         updatedOrder._id.toString(),
         updatedOrder.orderNumber,
-        status,
-        previousStatus
+        status
       );
     }
 

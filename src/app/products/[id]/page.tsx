@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Star, ShoppingCart, Heart, Share2, Truck, Shield, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
 import { useCartWithNotifications } from '@/hooks/useCartWithNotifications';
 import { formatDate } from '@/lib/utils';

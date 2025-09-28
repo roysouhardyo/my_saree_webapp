@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Bell, X } from 'lucide-react';
+import { Bell, Check, X } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 
 interface Notification {
