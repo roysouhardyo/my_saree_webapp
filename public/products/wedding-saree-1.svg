@@ -1,0 +1,71 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="weddingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#881337;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7f1d1d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#701a75;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="heavyGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="goldShimmer" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:0.2" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="500" fill="#f8fafc"/>
+  
+  <!-- Main saree body -->
+  <path d="M80 80 Q200 60 320 80 Q360 100 360 250 Q360 400 320 420 Q200 440 80 420 Q40 400 40 250 Q40 100 80 80 Z" 
+        fill="url(#weddingGradient)" stroke="#450a0a" stroke-width="3"/>
+  
+  <!-- Heavy gold border -->
+  <path d="M80 80 Q200 60 320 80 Q360 100 360 250 Q360 400 320 420 Q200 440 80 420 Q40 400 40 250 Q40 100 80 80 Z" 
+        fill="none" stroke="url(#heavyGold)" stroke-width="12" opacity="0.9"/>
+  
+  <!-- Inner decorative border -->
+  <path d="M95 95 Q200 78 305 95 Q340 110 340 250 Q340 390 305 405 Q200 422 95 405 Q60 390 60 250 Q60 110 95 95 Z" 
+        fill="none" stroke="url(#heavyGold)" stroke-width="6" opacity="0.7"/>
+  
+  <!-- Traditional bridal motifs -->
+  <circle cx="200" cy="150" r="20" fill="url(#heavyGold)" opacity="0.8"/>
+  <circle cx="200" cy="150" r="15" fill="url(#weddingGradient)" opacity="0.9"/>
+  <circle cx="200" cy="150" r="8" fill="url(#heavyGold)" opacity="0.9"/>
+  
+  <!-- Paisley patterns -->
+  <path d="M130 200 Q140 180 160 190 Q150 210 130 200" fill="url(#heavyGold)" opacity="0.8"/>
+  <path d="M270 200 Q260 180 240 190 Q250 210 270 200" fill="url(#heavyGold)" opacity="0.8"/>
+  
+  <path d="M110 280 Q120 260 140 270 Q130 290 110 280" fill="url(#heavyGold)" opacity="0.8"/>
+  <path d="M290 280 Q280 260 260 270 Q270 290 290 280" fill="url(#heavyGold)" opacity="0.8"/>
+  
+  <!-- Heavy embroidery work -->
+  <circle cx="150" cy="220" r="8" fill="url(#heavyGold)" opacity="0.9"/>
+  <circle cx="250" cy="220" r="8" fill="url(#heavyGold)" opacity="0.9"/>
+  <circle cx="200" cy="250" r="12" fill="url(#heavyGold)" opacity="0.9"/>
+  <circle cx="170" cy="280" r="6" fill="url(#heavyGold)" opacity="0.9"/>
+  <circle cx="230" cy="280" r="6" fill="url(#heavyGold)" opacity="0.9"/>
+  <circle cx="200" cy="320" r="10" fill="url(#heavyGold)" opacity="0.9"/>
+  
+  <!-- Intricate gold work -->
+  <path d="M120 350 Q140 340 160 350 Q180 360 200 350 Q220 340 240 350 Q260 360 280 350" 
+        fill="none" stroke="url(#heavyGold)" stroke-width="5" opacity="0.9"/>
+  
+  <path d="M100 380 Q120 370 140 380 Q160 390 180 380 Q200 370 220 380 Q240 390 260 380 Q280 370 300 380" 
+        fill="none" stroke="url(#heavyGold)" stroke-width="4" opacity="0.8"/>
+  
+  <!-- Bridal shimmer effect -->
+  <ellipse cx="200" cy="250" rx="100" ry="150" fill="url(#goldShimmer)" opacity="0.2"/>
+  
+  <!-- Temple border design -->
+  <rect x="70" y="100" width="8" height="8" fill="url(#heavyGold)" opacity="0.8"/>
+  <rect x="70" y="120" width="8" height="8" fill="url(#heavyGold)" opacity="0.8"/>
+  <rect x="70" y="140" width="8" height="8" fill="url(#heavyGold)" opacity="0.8"/>
+  <rect x="322" y="100" width="8" height="8" fill="url(#heavyGold)" opacity="0.8"/>
+  <rect x="322" y="120" width="8" height="8" fill="url(#heavyGold)" opacity="0.8"/>
+  <rect x="322" y="140" width="8" height="8" fill="url(#heavyGold)" opacity="0.8"/>
+</svg>

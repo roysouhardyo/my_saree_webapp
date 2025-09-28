@@ -1,0 +1,74 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0284c7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0369a1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lightBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#bae6fd;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7dd3fc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38bdf8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tealAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14b8a6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0d9488;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f766e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="500" fill="#f8fafc"/>
+  
+  <!-- Main saree body -->
+  <path d="M80 80 Q200 60 320 80 Q360 100 360 250 Q360 400 320 420 Q200 440 80 420 Q40 400 40 250 Q40 100 80 80 Z" 
+        fill="url(#lightBlue)" stroke="#0369a1" stroke-width="2"/>
+  
+  <!-- Blue border sections -->
+  <rect x="40" y="80" width="320" height="60" fill="url(#blueGradient)" opacity="0.8"/>
+  <rect x="40" y="360" width="320" height="60" fill="url(#blueGradient)" opacity="0.8"/>
+  
+  <!-- Floral motifs scattered across -->
+  <g opacity="0.9">
+    <!-- Large flowers -->
+    <circle cx="120" cy="180" r="12" fill="url(#tealAccent)"/>
+    <circle cx="120" cy="180" r="8" fill="url(#blueGradient)"/>
+    <circle cx="120" cy="180" r="4" fill="url(#tealAccent)"/>
+    
+    <circle cx="280" cy="200" r="12" fill="url(#tealAccent)"/>
+    <circle cx="280" cy="200" r="8" fill="url(#blueGradient)"/>
+    <circle cx="280" cy="200" r="4" fill="url(#tealAccent)"/>
+    
+    <circle cx="200" cy="250" r="15" fill="url(#tealAccent)"/>
+    <circle cx="200" cy="250" r="10" fill="url(#blueGradient)"/>
+    <circle cx="200" cy="250" r="5" fill="url(#tealAccent)"/>
+    
+    <circle cx="150" cy="300" r="10" fill="url(#tealAccent)"/>
+    <circle cx="150" cy="300" r="6" fill="url(#blueGradient)"/>
+    <circle cx="150" cy="300" r="3" fill="url(#tealAccent)"/>
+    
+    <circle cx="250" cy="320" r="10" fill="url(#tealAccent)"/>
+    <circle cx="250" cy="320" r="6" fill="url(#blueGradient)"/>
+    <circle cx="250" cy="320" r="3" fill="url(#tealAccent)"/>
+    
+    <!-- Small scattered flowers -->
+    <circle cx="160" cy="160" r="6" fill="url(#tealAccent)" opacity="0.8"/>
+    <circle cx="240" cy="170" r="6" fill="url(#tealAccent)" opacity="0.8"/>
+    <circle cx="180" cy="220" r="5" fill="url(#tealAccent)" opacity="0.8"/>
+    <circle cx="220" cy="280" r="5" fill="url(#tealAccent)" opacity="0.8"/>
+    <circle cx="120" cy="260" r="5" fill="url(#tealAccent)" opacity="0.8"/>
+    <circle cx="280" cy="270" r="5" fill="url(#tealAccent)" opacity="0.8"/>
+    <circle cx="170" cy="340" r="4" fill="url(#tealAccent)" opacity="0.8"/>
+    <circle cx="230" cy="350" r="4" fill="url(#tealAccent)" opacity="0.8"/>
+  </g>
+  
+  <!-- Flowing vine patterns -->
+  <path d="M100 150 Q140 160 180 150 Q220 140 260 150 Q300 160 340 150" 
+        fill="none" stroke="url(#tealAccent)" stroke-width="3" opacity="0.7"/>
+  <path d="M80 280 Q120 290 160 280 Q200 270 240 280 Q280 290 320 280" 
+        fill="none" stroke="url(#tealAccent)" stroke-width="3" opacity="0.7"/>
+  
+  <!-- Border design -->
+  <path d="M80 80 Q200 60 320 80 Q360 100 360 250 Q360 400 320 420 Q200 440 80 420 Q40 400 40 250 Q40 100 80 80 Z" 
+        fill="none" stroke="url(#tealAccent)" stroke-width="4" opacity="0.9"/>
+</svg>

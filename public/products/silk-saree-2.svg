@@ -1,0 +1,68 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c2d92;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#9333ea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldZari" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="500" fill="#f8fafc"/>
+  
+  <!-- Main saree body -->
+  <path d="M80 80 Q200 60 320 80 Q360 100 360 250 Q360 400 320 420 Q200 440 80 420 Q40 400 40 250 Q40 100 80 80 Z" 
+        fill="url(#purpleGradient)" stroke="#581c87" stroke-width="2"/>
+  
+  <!-- Gold border at bottom -->
+  <rect x="40" y="380" width="320" height="40" fill="url(#goldBorder)" opacity="0.9"/>
+  
+  <!-- Traditional paisley motifs all over -->
+  <g opacity="0.8">
+    <!-- Row 1 -->
+    <path d="M100 120 Q110 100 130 110 Q120 130 100 120" fill="url(#goldZari)"/>
+    <path d="M160 130 Q170 110 190 120 Q180 140 160 130" fill="url(#goldZari)"/>
+    <path d="M220 125 Q230 105 250 115 Q240 135 220 125" fill="url(#goldZari)"/>
+    <path d="M280 135 Q290 115 310 125 Q300 145 280 135" fill="url(#goldZari)"/>
+    
+    <!-- Row 2 -->
+    <path d="M120 170 Q130 150 150 160 Q140 180 120 170" fill="url(#goldZari)"/>
+    <path d="M200 175 Q210 155 230 165 Q220 185 200 175" fill="url(#goldZari)"/>
+    <path d="M260 180 Q270 160 290 170 Q280 190 260 180" fill="url(#goldZari)"/>
+    
+    <!-- Row 3 -->
+    <path d="M90 220 Q100 200 120 210 Q110 230 90 220" fill="url(#goldZari)"/>
+    <path d="M170 225 Q180 205 200 215 Q190 235 170 225" fill="url(#goldZari)"/>
+    <path d="M240 230 Q250 210 270 220 Q260 240 240 230" fill="url(#goldZari)"/>
+    <path d="M300 225 Q310 205 330 215 Q320 235 300 225" fill="url(#goldZari)"/>
+    
+    <!-- Row 4 -->
+    <path d="M110 270 Q120 250 140 260 Q130 280 110 270" fill="url(#goldZari)"/>
+    <path d="M190 275 Q200 255 220 265 Q210 285 190 275" fill="url(#goldZari)"/>
+    <path d="M270 280 Q280 260 300 270 Q290 290 270 280" fill="url(#goldZari)"/>
+    
+    <!-- Row 5 -->
+    <path d="M80 320 Q90 300 110 310 Q100 330 80 320" fill="url(#goldZari)"/>
+    <path d="M150 325 Q160 305 180 315 Q170 335 150 325" fill="url(#goldZari)"/>
+    <path d="M220 330 Q230 310 250 320 Q240 340 220 330" fill="url(#goldZari)"/>
+    <path d="M290 325 Q300 305 320 315 Q310 335 290 325" fill="url(#goldZari)"/>
+  </g>
+  
+  <!-- Heavy gold border design -->
+  <path d="M80 80 Q200 60 320 80 Q360 100 360 250 Q360 400 320 420 Q200 440 80 420 Q40 400 40 250 Q40 100 80 80 Z" 
+        fill="none" stroke="url(#goldZari)" stroke-width="6" opacity="0.9"/>
+  
+  <!-- Inner decorative border -->
+  <path d="M95 95 Q200 78 305 95 Q340 110 340 250 Q340 390 305 405 Q200 422 95 405 Q60 390 60 250 Q60 110 95 95 Z" 
+        fill="none" stroke="url(#goldZari)" stroke-width="3" opacity="0.7"/>
+</svg>

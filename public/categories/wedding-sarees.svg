@@ -1,0 +1,27 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="weddingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#weddingGradient)"/>
+  
+  <!-- Wedding saree pattern -->
+  <path d="M80 80 Q180 60 280 80 Q320 100 320 150 Q320 200 280 220 Q180 240 80 220 Q80 200 80 80 Z" 
+        fill="#ffffff" opacity="0.4"/>
+  
+  <!-- Wedding decorative elements -->
+  <circle cx="150" cy="130" r="8" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="200" cy="120" r="6" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="250" cy="140" r="7" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="180" cy="170" r="5" fill="#fbbf24" opacity="0.8"/>
+  <circle cx="220" cy="180" r="6" fill="#fbbf24" opacity="0.8"/>
+  
+  <!-- Text -->
+  <text x="200" y="165" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="bold">
+    Wedding Sarees
+  </text>
+</svg>

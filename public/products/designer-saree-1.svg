@@ -1,0 +1,64 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="designerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sequinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="shimmer" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="500" fill="#f8fafc"/>
+  
+  <!-- Main saree body -->
+  <path d="M80 80 Q200 60 320 80 Q360 100 360 250 Q360 400 320 420 Q200 440 80 420 Q40 400 40 250 Q40 100 80 80 Z" 
+        fill="url(#designerGradient)" stroke="#581c87" stroke-width="2"/>
+  
+  <!-- Sequin embellishments -->
+  <circle cx="120" cy="140" r="6" fill="url(#sequinGradient)" opacity="0.9"/>
+  <circle cx="160" cy="130" r="4" fill="url(#sequinGradient)" opacity="0.9"/>
+  <circle cx="200" cy="125" r="5" fill="url(#sequinGradient)" opacity="0.9"/>
+  <circle cx="240" cy="130" r="4" fill="url(#sequinGradient)" opacity="0.9"/>
+  <circle cx="280" cy="140" r="6" fill="url(#sequinGradient)" opacity="0.9"/>
+  
+  <circle cx="100" cy="180" r="5" fill="url(#sequinGradient)" opacity="0.9"/>
+  <circle cx="140" cy="170" r="3" fill="url(#sequinGradient)" opacity="0.9"/>
+  <circle cx="180" cy="165" r="4" fill="url(#sequinGradient)" opacity="0.9"/>
+  <circle cx="220" cy="170" r="3" fill="url(#sequinGradient)" opacity="0.9"/>
+  <circle cx="260" cy="175" r="4" fill="url(#sequinGradient)" opacity="0.9"/>
+  <circle cx="300" cy="180" r="5" fill="url(#sequinGradient)" opacity="0.9"/>
+  
+  <!-- Modern geometric patterns -->
+  <polygon points="150,220 170,200 190,220 170,240" fill="url(#sequinGradient)" opacity="0.7"/>
+  <polygon points="210,220 230,200 250,220 230,240" fill="url(#sequinGradient)" opacity="0.7"/>
+  
+  <polygon points="130,280 150,260 170,280 150,300" fill="url(#sequinGradient)" opacity="0.7"/>
+  <polygon points="230,280 250,260 270,280 250,300" fill="url(#sequinGradient)" opacity="0.7"/>
+  
+  <!-- Contemporary border design -->
+  <path d="M80 80 Q200 60 320 80" fill="none" stroke="url(#sequinGradient)" stroke-width="6" opacity="0.8"/>
+  <path d="M80 420 Q200 440 320 420" fill="none" stroke="url(#sequinGradient)" stroke-width="6" opacity="0.8"/>
+  
+  <!-- Shimmer effect -->
+  <ellipse cx="200" cy="250" rx="80" ry="120" fill="url(#shimmer)" opacity="0.3"/>
+  
+  <!-- Crystal embellishments -->
+  <circle cx="180" cy="320" r="3" fill="#ffffff" opacity="0.9"/>
+  <circle cx="220" cy="320" r="3" fill="#ffffff" opacity="0.9"/>
+  <circle cx="200" cy="340" r="4" fill="#ffffff" opacity="0.9"/>
+  <circle cx="160" cy="360" r="3" fill="#ffffff" opacity="0.9"/>
+  <circle cx="240" cy="360" r="3" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Modern abstract design -->
+  <path d="M120 380 Q140 370 160 380 Q180 390 200 380 Q220 370 240 380 Q260 390 280 380" 
+        fill="none" stroke="url(#sequinGradient)" stroke-width="3" opacity="0.8"/>
+</svg>

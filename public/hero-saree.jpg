@@ -1,0 +1,30 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#f97316;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#heroGradient)"/>
+  
+  <!-- Saree silhouette -->
+  <path d="M200 100 Q300 80 400 100 Q500 120 600 100 L600 500 Q500 480 400 500 Q300 520 200 500 Z" 
+        fill="#ffffff" opacity="0.3"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="150" r="20" fill="#ffffff" opacity="0.4"/>
+  <circle cx="650" cy="200" r="15" fill="#ffffff" opacity="0.3"/>
+  <circle cx="100" cy="400" r="25" fill="#ffffff" opacity="0.2"/>
+  <circle cx="700" cy="450" r="18" fill="#ffffff" opacity="0.3"/>
+  
+  <!-- Text overlay -->
+  <text x="400" y="300" text-anchor="middle" fill="#ffffff" font-size="48" font-weight="bold" opacity="0.9">
+    Beautiful Sarees
+  </text>
+  <text x="400" y="350" text-anchor="middle" fill="#ffffff" font-size="24" opacity="0.7">
+    Traditional Elegance
+  </text>
+</svg>
