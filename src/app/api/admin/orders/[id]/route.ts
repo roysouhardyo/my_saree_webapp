@@ -111,7 +111,7 @@ export async function PATCH(
       userId: updatedOrder.userId._id.toString(),
       userName: updatedOrder.userId.name,
       userEmail: updatedOrder.userId.email,
-      items: updatedOrder.items.map((item: any) => ({
+      items: updatedOrder.items.map((item) => ({
         productId: item.productId.toString(),
         productName: item.title,
         productImage: item.image,
@@ -163,11 +163,11 @@ export async function GET(
 
     // Transform the response
     const transformedOrder = {
-      _id: (order as any)._id.toString(),
-      userId: (order as any).userId._id.toString(),
-      userName: (order as any).userId.name,
-      userEmail: (order as any).userId.email,
-      items: (order as any).items.map((item: any) => ({
+      _id: (order as IOrder & Document)._id.toString(),
+      userId: (order as IOrder & Document & { userId: { _id: string; name: string; email: string } }).userId._id.toString(),
+      userName: (order as IOrder & Document & { userId: { _id: string; name: string; email: string } }).userId.name,
+      userEmail: (order as IOrder & Document & { userId: { _id: string; name: string; email: string } }).userId.email,
+      items: (order as IOrder & Document).items.map((item) => ({
         productId: item.productId.toString(),
         productName: item.title,
         productImage: item.image,

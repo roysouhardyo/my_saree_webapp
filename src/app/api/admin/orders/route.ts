@@ -21,12 +21,12 @@ export async function GET(request: NextRequest) {
       .lean();
 
     // Transform the data to include user information
-    const transformedOrders = orders.map((order: any) => ({
+    const transformedOrders = orders.map((order: IOrder & { userId: { _id: string; name: string; email: string } }) => ({
       _id: order._id.toString(),
       userId: order.userId._id.toString(),
       userName: order.userId.name,
       userEmail: order.userId.email,
-      items: order.items.map((item: any) => ({
+      items: order.items.map((item) => ({
         productId: item.productId.toString(),
         productName: item.title,
         productImage: item.image,
