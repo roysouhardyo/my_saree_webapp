@@ -21,12 +21,12 @@ export async function GET(request: NextRequest) {
       .lean();
 
     // Transform the data to include user information
-    const transformedOrders = orders.map((order: IOrder & { userId: { _id: string; name: string; email: string } }) => ({
-      _id: order._id.toString(),
-      userId: order.userId._id.toString(),
-      userName: order.userId.name,
-      userEmail: order.userId.email,
-      items: order.items.map((item) => ({
+    const transformedOrders = orders.map((order) => ({
+      _id: (order._id as any).toString(),
+      userId: (order.userId as any)._id.toString(),
+      userName: (order.userId as any).name,
+      userEmail: (order.userId as any).email,
+      items: (order.items as any[]).map((item) => ({
         productId: item.productId.toString(),
         productName: item.title,
         productImage: item.image,
@@ -36,8 +36,8 @@ export async function GET(request: NextRequest) {
       totalAmount: order.totalAmount,
       shippingAddress: order.shippingAddress,
       status: order.status,
-      createdAt: order.createdAt.toISOString(),
-      updatedAt: order.updatedAt.toISOString()
+      createdAt: (order.createdAt as Date).toISOString(),
+      updatedAt: (order.updatedAt as Date).toISOString()
     }));
 
     return NextResponse.json(transformedOrders);
