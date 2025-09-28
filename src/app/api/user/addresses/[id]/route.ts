@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
-import User from '@/models/User';
+import User, { IUser } from '@/models/User';
 import { requireAuth } from '@/lib/middleware';
+import mongoose from 'mongoose';
 
 export async function PUT(
   request: NextRequest,
@@ -33,7 +34,7 @@ export async function PUT(
       );
     }
 
-    const addressIndex = user.addresses.findIndex((addr: any) => addr._id.toString() === id);
+    const addressIndex = user.addresses.findIndex((addr: IUser['addresses'][0] & { _id: mongoose.Types.ObjectId }) => addr._id?.toString() === id);
     if (addressIndex === -1) {
       return NextResponse.json(
         { error: 'Address not found' },
@@ -43,7 +44,7 @@ export async function PUT(
 
     // If this is set as default, unset other default addresses
     if (isDefault) {
-      user.addresses.forEach((addr: any, index: number) => {
+      user.addresses.forEach((addr: IUser['addresses'][0], index: number) => {
         if (index !== addressIndex) {
           addr.isDefault = false;
         }
@@ -96,7 +97,7 @@ export async function DELETE(
       );
     }
 
-    const addressIndex = user.addresses.findIndex((addr: any) => addr._id.toString() === id);
+    const addressIndex = user.addresses.findIndex((addr: IUser['addresses'][0] & { _id: mongoose.Types.ObjectId }) => addr._id?.toString() === id);
     if (addressIndex === -1) {
       return NextResponse.json(
         { error: 'Address not found' },

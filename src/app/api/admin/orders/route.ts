@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdmin } from '@/lib/adminAuth';
 import { connectDB } from '@/lib/mongodb';
-import Order, { IOrder } from '@/models/Order';
-import User from '@/models/User';
+import Order, { IOrderItem } from '@/models/Order';
+import mongoose from 'mongoose';
 
 export async function GET(request: NextRequest) {
   try {
@@ -22,11 +22,11 @@ export async function GET(request: NextRequest) {
 
     // Transform the data to include user information
     const transformedOrders = orders.map((order) => ({
-      _id: (order._id as any).toString(),
-      userId: (order.userId as any)._id.toString(),
-      userName: (order.userId as any).name,
-      userEmail: (order.userId as any).email,
-      items: (order.items as any[]).map((item) => ({
+      _id: (order._id as mongoose.Types.ObjectId).toString(),
+      userId: (order.userId as { _id: mongoose.Types.ObjectId; name: string; email: string })._id.toString(),
+      userName: (order.userId as { _id: mongoose.Types.ObjectId; name: string; email: string }).name,
+      userEmail: (order.userId as { _id: mongoose.Types.ObjectId; name: string; email: string }).email,
+      items: (order.items as IOrderItem[]).map((item) => ({
         productId: item.productId.toString(),
         productName: item.title,
         productImage: item.image,

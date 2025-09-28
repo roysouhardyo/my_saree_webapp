@@ -77,7 +77,7 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    let update: Record<string, unknown> = {};
+    const update: Record<string, unknown> = {};
 
     if (action === 'approve') {
       update.isApproved = true;

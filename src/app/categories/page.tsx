@@ -90,7 +90,7 @@ export default function CategoriesPage() {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Can't find what you're looking for?
+            Can&apos;t find what you&apos;re looking for?
           </h2>
           <p className="text-gray-600 mb-6">
             Browse our complete collection or use our search feature

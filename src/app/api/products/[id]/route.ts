@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import Product, { IProduct } from '@/models/Product';
+import mongoose from 'mongoose';
 
 export async function GET(
   request: NextRequest,
@@ -22,7 +23,7 @@ export async function GET(
 
     // Transform the product to match the expected format
     const transformedProduct = {
-      _id: (product._id as any).toString(),
+      _id: (product._id as mongoose.Types.ObjectId).toString(),
       title: product.title,
       description: product.description,
       price: product.price,

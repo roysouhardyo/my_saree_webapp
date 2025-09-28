@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
-import User from '@/models/User';
+import User, { IUser } from '@/models/User';
 import { requireAuth } from '@/lib/middleware';
 
 export async function POST(request: NextRequest) {
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
 
     // If this is set as default, unset other default addresses
     if (isDefault) {
-      user.addresses.forEach((addr: any) => {
+      user.addresses.forEach((addr: IUser['addresses'][0]) => {
         addr.isDefault = false;
       });
     }

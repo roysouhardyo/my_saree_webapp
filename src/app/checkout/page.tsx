@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { ArrowLeft, MapPin, Phone, Mail, User, CreditCard, Truck, CheckCircle } from 'lucide-react';
+import { ArrowLeft, MapPin, CreditCard, Truck, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -223,7 +223,7 @@ export default function CheckoutPage() {
           <div className="mb-6">
             <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Order Placed Successfully!</h1>
-            <p className="text-gray-600">Thank you for your order. We'll process it soon.</p>
+            <p className="text-gray-600">Thank you for your order. We&apos;ll process it soon.</p>
           </div>
           
           <div className="bg-white rounded-lg p-6 mb-6 border border-gray-200">
@@ -358,7 +358,7 @@ export default function CheckoutPage() {
                       <option value="Narayanganj">Narayanganj</option>
                       <option value="Savar">Savar</option>
                       <option value="Tongi">Tongi</option>
-                      <option value="Cox's Bazar">Cox's Bazar</option>
+                      <option value="Cox&apos;s Bazar">Cox&apos;s Bazar</option>
                       <option value="Bogura">Bogura</option>
                       <option value="Jessore">Jessore</option>
                       <option value="Dinajpur">Dinajpur</option>

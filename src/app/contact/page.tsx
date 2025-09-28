@@ -12,7 +12,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We'd love to hear from you. Get in touch with our team for any questions, 
+            We&apos;d love to hear from you. Get in touch with our team for any questions, 
             concerns, or feedback about our saree collection.
           </p>
         </div>

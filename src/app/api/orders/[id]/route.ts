@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
-import Order from '@/models/Order';
+import Order, { IOrderItem } from '@/models/Order';
 import Product from '@/models/Product';
 import { requireAuth } from '@/lib/middleware';
 
@@ -16,7 +16,7 @@ export async function GET(
 
     const { id } = await params;
 
-    let query: Record<string, unknown> = { _id: id };
+    const query: Record<string, unknown> = { _id: id };
 
     // Apply role-based filtering
     if (session.user.role === 'customer') {
@@ -104,7 +104,7 @@ export async function PUT(
     } else if (session.user.role === 'vendor') {
       // Vendors can update orders containing their products
       const hasVendorItems = order.items.some(
-        (item: any) => item.vendorId.toString() === session.user.id
+        (item: IOrderItem) => item.vendorId.toString() === session.user.id
       );
       if (!hasVendorItems) {
         return NextResponse.json(

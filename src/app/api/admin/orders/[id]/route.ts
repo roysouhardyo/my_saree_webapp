@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdmin } from '@/lib/adminAuth';
 import { connectDB } from '@/lib/mongodb';
-import Order, { IOrder } from '@/models/Order';
+import Order, { IOrder, IOrderItem } from '@/models/Order';
 import Product from '@/models/Product';
 import { createOrderNotification } from '@/lib/notifications';
-import { Document } from 'mongoose';
+import mongoose from 'mongoose';
 
 export async function PATCH(
   request: NextRequest,
@@ -106,7 +106,7 @@ export async function PATCH(
     if (previousStatus !== status) {
       await createOrderNotification(
         updatedOrder.userId._id.toString(),
-        (updatedOrder._id as any).toString(),
+        (updatedOrder._id as mongoose.Types.ObjectId).toString(),
         updatedOrder.orderNumber,
         status
       );
@@ -114,11 +114,11 @@ export async function PATCH(
 
     // Transform the response
     const transformedOrder = {
-      _id: (updatedOrder._id as any).toString(),
+      _id: (updatedOrder._id as mongoose.Types.ObjectId).toString(),
       userId: updatedOrder.userId._id.toString(),
       userName: updatedOrder.userId.name,
       userEmail: updatedOrder.userId.email,
-      items: updatedOrder.items.map((item: any) => ({
+      items: updatedOrder.items.map((item: IOrderItem) => ({
         productId: item.productId.toString(),
         productName: item.title,
         productImage: item.image,
@@ -170,11 +170,11 @@ export async function GET(
 
     // Transform the response
     const transformedOrder = {
-      _id: (order._id as any).toString(),
+      _id: (order._id as mongoose.Types.ObjectId).toString(),
       userId: order.userId._id.toString(),
       userName: order.userId.name,
       userEmail: order.userId.email,
-      items: order.items.map((item: any) => ({
+      items: order.items.map((item: IOrderItem) => ({
         productId: item.productId.toString(),
         productName: item.title,
         productImage: item.image,

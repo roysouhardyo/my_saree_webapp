@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAuth } from '@/lib/middleware';
 import dbConnect from '@/lib/mongodb';
+import Order, { IOrderItem } from '@/models/Order';
 import Review from '@/models/Review';
 import Product from '@/models/Product';
-import Order from '@/models/Order';
-import { requireAuth } from '@/lib/middleware';
 
 export async function GET(request: NextRequest) {
   try {
@@ -96,7 +96,7 @@ export async function POST(request: NextRequest) {
 
     // Verify the product is in the order
     const orderItem = order.items.find(
-      (item: any) => item.productId.toString() === productId
+      (item: IOrderItem) => item.productId.toString() === productId
     );
 
     if (!orderItem) {

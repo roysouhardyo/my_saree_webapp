@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     const vendorId = searchParams.get('vendorId') || '';
 
     // Build query based on user role
-    let query: Record<string, unknown> = {};
+    const query: Record<string, unknown> = {};
 
     if (session.user.role === 'customer') {
       query.userId = session.user.id;

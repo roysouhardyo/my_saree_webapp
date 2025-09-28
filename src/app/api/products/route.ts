@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import connectDB from '@/lib/mongodb';
+import dbConnect from '@/lib/mongodb';
 import Product from '@/models/Product';
+import mongoose from 'mongoose';
 
 export async function GET(request: NextRequest) {
   try {
-    await connectDB();
+    await dbConnect();
     
     const { searchParams } = new URL(request.url);
     
@@ -44,19 +45,19 @@ export async function GET(request: NextRequest) {
     if (minPrice || maxPrice) {
       query.$expr = {};
       if (minPrice && maxPrice) {
-        (query.$expr as any).$and = [
+        (query.$expr as Record<string, unknown>).$and = [
           { $gte: [{ $ifNull: ['$salePrice', '$price'] }, parseInt(minPrice)] },
           { $lte: [{ $ifNull: ['$salePrice', '$price'] }, parseInt(maxPrice)] }
         ];
       } else if (minPrice) {
-        (query.$expr as any).$gte = [{ $ifNull: ['$salePrice', '$price'] }, parseInt(minPrice)];
+        (query.$expr as Record<string, unknown>).$gte = [{ $ifNull: ['$salePrice', '$price'] }, parseInt(minPrice)];
       } else if (maxPrice) {
-        (query.$expr as any).$lte = [{ $ifNull: ['$salePrice', '$price'] }, parseInt(maxPrice)];
+        (query.$expr as Record<string, unknown>).$lte = [{ $ifNull: ['$salePrice', '$price'] }, parseInt(maxPrice)];
       }
     }
 
     // Build sort object
-    let sortObject: any = {};
+    let sortObject: { [key: string]: 1 | -1 } = {};
     switch (sortBy) {
       case 'price':
         sortObject = { price: 1 };
@@ -92,7 +93,7 @@ export async function GET(request: NextRequest) {
 
     // Transform products to match the expected format
     const transformedProducts = products.map(product => ({
-      _id: (product._id as any).toString(),
+      _id: (product._id as mongoose.Types.ObjectId).toString(),
       title: product.title,
       description: product.description,
       price: product.price,
