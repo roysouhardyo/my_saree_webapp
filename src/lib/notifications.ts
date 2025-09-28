@@ -130,7 +130,7 @@ export async function getUserNotifications(userId: string) {
       return [];
     }
     
-    return user.notifications.sort((a: any, b: any) => 
+    return user.notifications.sort((a: Notification, b: Notification) => 
       new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
   } catch (error) {
@@ -147,7 +147,7 @@ export async function markNotificationAsRead(userId: string, notificationId: str
     const user = await User.findById(userId);
     if (!user || !user.notifications) return;
     
-    const notification = user.notifications.find((n: any) => n._id?.toString() === notificationId);
+    const notification = user.notifications.find((n: Notification) => n._id?.toString() === notificationId);
     if (notification) {
       notification.read = true;
       await user.save();
@@ -167,7 +167,7 @@ export async function markAllNotificationsAsRead(userId: string) {
     const user = await User.findById(userId);
     if (!user || !user.notifications) return;
     
-    user.notifications.forEach((notification: any) => {
+    user.notifications.forEach((notification: Notification) => {
       notification.read = true;
     });
     

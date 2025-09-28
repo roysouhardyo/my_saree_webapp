@@ -12,7 +12,7 @@ export default function AboutPage() {
             About Saree Not Sorry
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're passionate about bringing you the finest collection of authentic sarees 
+            We&apos;re passionate about bringing you the finest collection of authentic sarees 
             from trusted vendors across Bangladesh, celebrating the timeless beauty of traditional wear.
           </p>
         </div>

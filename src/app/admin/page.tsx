@@ -11,10 +11,6 @@ import {
   TrendingUp, 
   AlertTriangle,
   Plus,
-  Edit,
-  Trash2,
-  Check,
-  X,
   Tag
 } from 'lucide-react';
 

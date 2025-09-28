@@ -11,10 +11,6 @@ import {
   Trash2,
   ArrowLeft,
   Shield,
-  Mail,
-  Calendar,
-  MoreVertical,
-  Check,
   X
 } from 'lucide-react';
 
@@ -389,7 +385,7 @@ export default function AdminUsers() {
                   </label>
                   <select
                     value={editingUser.role}
-                    onChange={(e) => setEditingUser({...editingUser, role: e.target.value as any})}
+                    onChange={(e) => setEditingUser({...editingUser, role: e.target.value as 'customer' | 'vendor' | 'admin'})}
                     className="w-full px-4 py-3 bg-white/70 backdrop-blur-sm border border-white/40 rounded-xl focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 text-gray-900 font-medium shadow-sm transition-all duration-200"
                   >
                     <option value="customer">Customer</option>

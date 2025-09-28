@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useNotification } from '@/contexts/NotificationContext';
 import { 
   Check, 
@@ -17,8 +17,7 @@ import {
   XCircle,
   ArrowLeft,
   User,
-  MapPin,
-  Phone
+  MapPin
 } from 'lucide-react';
 
 interface OrderItem {
@@ -69,18 +68,7 @@ export default function AdminOrders() {
     { value: 'cancelled', label: 'Cancelled' }
   ];
 
-  useEffect(() => {
-    if (status === 'loading') return;
-    
-    if (!session) {
-      router.push('/auth/signin');
-      return;
-    }
-
-    checkAdminAccess();
-  }, [session, status, router]);
-
-  const checkAdminAccess = async () => {
+  const checkAdminAccess = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/check');
       if (!response.ok) {
@@ -93,7 +81,18 @@ export default function AdminOrders() {
       console.error('Admin access check failed:', error);
       router.push('/');
     }
-  };
+  }, [router]);
+
+  useEffect(() => {
+    if (status === 'loading') return;
+    
+    if (!session) {
+      router.push('/auth/signin');
+      return;
+    }
+
+    checkAdminAccess();
+  }, [session, status, router, checkAdminAccess]);
 
   const fetchOrders = async () => {
     try {

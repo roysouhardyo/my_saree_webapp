@@ -10,8 +10,6 @@ import {
   Search, 
   Filter,
   Package,
-  DollarSign,
-  AlertTriangle,
   Eye,
   ArrowLeft
 } from 'lucide-react';
@@ -437,13 +435,13 @@ function ProductModal({
       });
 
       // Add image files
-      imageFiles.forEach((file, index) => {
+      imageFiles.forEach((file) => {
         submitData.append(`images`, file);
       });
 
       // If editing and there are existing images, preserve them
       if (product && product.images) {
-        product.images.forEach((imageUrl, index) => {
+        product.images.forEach((imageUrl) => {
           if (imagePreviews.includes(imageUrl)) {
             submitData.append('existingImages', imageUrl);
           }
@@ -462,7 +460,7 @@ function ProductModal({
       });
 
       if (response.ok) {
-        const savedProduct = await response.json();
+        await response.json();
         addNotification({
           type: 'success',
           title: product ? 'Product Updated' : 'Product Created',
