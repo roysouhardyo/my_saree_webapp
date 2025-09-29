@@ -9,7 +9,7 @@ export default function AboutPage() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            About Saree Not Sorry
+            About Silk & Heritage
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We&apos;re passionate about bringing you the finest collection of authentic sarees 
@@ -23,7 +23,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
             <p className="text-gray-600 mb-4">
               Founded with a vision to make authentic Bangladeshi sarees accessible to women everywhere, 
-              Saree Not Sorry began as a small initiative to connect traditional artisans with 
+              Silk & Heritage began as a small initiative to connect traditional artisans with 
               modern customers who appreciate quality and craftsmanship.
             </p>
             <p className="text-gray-600 mb-4">

@@ -100,7 +100,7 @@ export default function SignUpPage() {
         addNotification({
           type: 'success',
           title: 'Welcome!',
-          message: `Welcome to Saree Not Sorry, ${session?.user?.name || 'User'}!`,
+          message: `Welcome to Silk & Heritage, ${session?.user?.name || 'User'}!`,
         });
         
         if (session?.user?.role === 'admin') {

@@ -104,7 +104,7 @@ export async function GET(request: NextRequest) {
       occasion: product.occasion,
       vendor: {
         _id: product.vendorId?.toString() || 'default-vendor',
-        businessName: 'Saree Not Sorry' // Default vendor name
+        businessName: 'Silk & Heritage' // Default vendor name
       },
       rating: product.rating,
       reviewCount: product.reviewsCount,

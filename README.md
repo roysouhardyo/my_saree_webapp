@@ -1,4 +1,4 @@
-﻿# Saree Not Sorry - E-commerce Platform
+# Silk & Heritage - E-commerce Platform
 
 Last updated: 2025-09-29 07.09.31
  

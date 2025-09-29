@@ -34,7 +34,7 @@ export async function GET(
       occasion: product.occasion,
       vendor: {
         _id: product.vendorId.toString(),
-        businessName: 'Saree Not Sorry' // Default vendor name
+        businessName: 'Silk & Heritage' // Default vendor name
       },
       rating: product.rating,
       reviewCount: product.reviewsCount,

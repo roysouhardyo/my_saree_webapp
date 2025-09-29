@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-pink-400">Saree Not Sorry</h3>
+            <h3 className="text-2xl font-bold text-pink-400">Silk & Heritage</h3>
             <p className="text-gray-300">
               Your premier destination for authentic and beautiful sarees. 
               Celebrating tradition with modern elegance.
@@ -76,7 +76,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Saree Not Sorry. All rights reserved.
+              © {currentYear} Silk & Heritage. All rights reserved.
             </p>
             <p className="text-gray-400 text-sm mt-2 md:mt-0">
               Made with ❤️ by Souhardya Roy
