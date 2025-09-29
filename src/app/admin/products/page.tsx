@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { 
   Plus, 
   Edit, 
@@ -42,32 +42,6 @@ export default function AdminProducts() {
 
   const categories = ['cotton', 'silk', 'designer', 'wedding'];
 
-  useEffect(() => {
-    if (status === 'loading') return;
-    
-    if (!session) {
-      router.push('/auth/signin');
-      return;
-    }
-
-    checkAdminAccess();
-  }, [session, status, router]);
-
-  const checkAdminAccess = async () => {
-    try {
-      const response = await fetch('/api/admin/check');
-      if (!response.ok) {
-        router.push('/');
-        return;
-      }
-      
-      await fetchProducts();
-    } catch (error) {
-      console.error('Admin access check failed:', error);
-      router.push('/');
-    }
-  };
-
   const fetchProducts = async () => {
     try {
       const response = await fetch('/api/admin/products');
@@ -81,6 +55,32 @@ export default function AdminProducts() {
       setLoading(false);
     }
   };
+
+  const checkAdminAccess = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/check');
+      if (!response.ok) {
+        router.push('/');
+        return;
+      }
+      
+      await fetchProducts();
+    } catch (error) {
+      console.error('Admin access check failed:', error);
+      router.push('/');
+    }
+  }, [router]);
+
+  useEffect(() => {
+    if (status === 'loading') return;
+    
+    if (!session) {
+      router.push('/auth/signin');
+      return;
+    }
+
+    checkAdminAccess();
+  }, [session, status, router, checkAdminAccess]);
 
   const handleDeleteProduct = async (productId: string) => {
     if (!confirm('Are you sure you want to delete this product?')) return;
@@ -562,9 +562,11 @@ function ProductModal({
               <div className="grid grid-cols-3 gap-3">
                 {imagePreviews.map((preview, index) => (
                   <div key={index} className="relative group">
-                    <img
+                    <Image
                       src={preview}
                       alt={`Product image preview ${index + 1}`}
+                      width={80}
+                      height={80}
                       className="w-full h-20 object-cover rounded-lg border border-white/30"
                     />
                     <button

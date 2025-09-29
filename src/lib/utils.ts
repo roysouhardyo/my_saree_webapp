@@ -42,16 +42,7 @@ export function debounce<T extends (...args: unknown[]) => unknown>(
   };
 }
 
-export function getImageUrl(publicId: string, transformations?: string): string {
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-  const baseUrl = `https://res.cloudinary.com/${cloudName}/image/upload`;
-  
-  if (transformations) {
-    return `${baseUrl}/${transformations}/${publicId}`;
-  }
-  
-  return `${baseUrl}/${publicId}`;
-}
+
 
 export function calculateDiscountPercentage(originalPrice: number, salePrice: number): number {
   return Math.round(((originalPrice - salePrice) / originalPrice) * 100);

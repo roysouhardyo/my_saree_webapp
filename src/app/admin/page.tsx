@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { 
   Users, 
   Package, 
@@ -36,34 +36,6 @@ export default function AdminDashboard() {
   });
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (status === 'loading') return;
-    
-    if (!session) {
-      router.push('/auth/signin');
-      return;
-    }
-
-    // Check if user is admin
-    checkAdminAccess();
-  }, [session, status, router]);
-
-  const checkAdminAccess = async () => {
-    try {
-      const response = await fetch('/api/admin/check');
-      if (!response.ok) {
-        router.push('/');
-        return;
-      }
-      
-      // Fetch dashboard stats
-      await fetchStats();
-    } catch (error) {
-      console.error('Admin access check failed:', error);
-      router.push('/');
-    }
-  };
-
   const fetchStats = async () => {
     try {
       const response = await fetch('/api/admin/stats');
@@ -77,6 +49,34 @@ export default function AdminDashboard() {
       setLoading(false);
     }
   };
+
+  const checkAdminAccess = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/check');
+      if (!response.ok) {
+        router.push('/');
+        return;
+      }
+      
+      // Fetch dashboard stats
+      await fetchStats();
+    } catch (error) {
+      console.error('Admin access check failed:', error);
+      router.push('/');
+    }
+  }, [router]);
+
+  useEffect(() => {
+    if (status === 'loading') return;
+    
+    if (!session) {
+      router.push('/auth/signin');
+      return;
+    }
+
+    // Check if user is admin
+    checkAdminAccess();
+  }, [session, status, router, checkAdminAccess]);
 
   if (status === 'loading' || loading) {
     return (
